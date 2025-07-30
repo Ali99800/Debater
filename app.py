@@ -19,7 +19,8 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # Check for API keys
 if not openai.api_key or not google_api_key:
-    st.error("API keys for OpenAI and Google Gemini are not set. Please create a .env file with the keys.")
+    st.error("API keys for OpenAI and Google Gemini are not set. Please set them in your environment variables.")
+    st.info("For local development, create a .env file with OPENAI_API_KEY and GOOGLE_API_KEY")
     st.stop()
 
 if google_api_key:
@@ -144,6 +145,12 @@ def get_joint_summary(conversation_history):
 # ---
 
 st.title("🎓 Dual-AI Dissertation Debate")
+
+# Add a simple status indicator
+if openai.api_key and google_api_key:
+    st.success("✅ API keys configured successfully")
+else:
+    st.warning("⚠️ API keys not configured - app will not function properly")
 
 # Initialize session state for conversation
 if 'messages' not in st.session_state:
