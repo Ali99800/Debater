@@ -234,3 +234,5 @@ if 'summary' in st.session_state and st.session_state.summary:
 
     st.markdown("### Advisor Advice")
     st.markdown(summary_data.get("advisor_advice", "Not available.")) 
+
+    
