@@ -22,4 +22,4 @@ EXPOSE 8501
 
 # ---- Start the app ----
 # Vercel sets the PORT env var automatically. Streamlit must bind to 0.0.0.0.
-CMD ["streamlit", "run", "app.py", "--server.port", "$PORT", "--server.address", "0.0.0.0"]
+CMD ["sh", "-c", "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"]
